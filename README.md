@@ -1,2 +1,5 @@
 # sql_practice
-answers to SQLZOO tutorials exercises
+
+Simon Tharby's solutions to Odin Project, ['Project: SQL'](https://www.theodinproject.com/courses/databases/lessons/sql)
+
+Answers to exercises from [SQLZOO tutorials 0 - 9](https://sqlzoo.net/wiki/Main_Page).
