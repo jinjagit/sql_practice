@@ -75,11 +75,15 @@ AS GER_goals
 GROUP BY matchid, mdate;
 
 -- 6.13 List every match with the goals scored by each team as shown.
+-- Note: the 'left join' to include games where neither team scored, therefore
+-- there are no entries in the goal table for such 0-0 draws, but we still need
+-- to create these rows for the sum(case when...) operations to create the zero
+-- results in the score1 and score2 columns, etc.
 SELECT mdate,
   team1,
   SUM(CASE WHEN teamid = team1 THEN 1 ELSE 0 END) score1,
   team2,
   SUM(CASE WHEN teamid = team2 THEN 1 ELSE 0 END) score2
-  FROM game left JOIN goal ON matchid = id
+  FROM game LEFT JOIN goal ON matchid = id
 GROUP BY mdate, team1, team2
 ORDER by mdate, matchid, team1, team2
