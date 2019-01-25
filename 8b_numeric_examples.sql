@@ -51,7 +51,7 @@ SELECT subject, ROUND(SUM(A_STRONGLY_AGREE * response) / SUM(response))
  WHERE question = 'Q22'
    AND (subject = '(8) Computer Science'
         OR subject = '(H) Creative Arts and Design')
-GROUP BY subject
+GROUP BY subject;
 
 -- 8b.7 Show the average scores for question 'Q22' for each institution that
 --      include 'Manchester' in the name.
