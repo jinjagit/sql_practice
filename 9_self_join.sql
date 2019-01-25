@@ -80,9 +80,13 @@ SELECT rx.num, rx.company, sx.name AS change_at, ry.num, ry.company
   FROM route rx JOIN route ry ON (rx.stop = ry.stop)
   JOIN stops sx ON (sx.id = rx.stop)
  WHERE rx.num != ry.num
-   AND rx.company IN (SELECT DISTINCT ra.company
-  FROM route ra JOIN stops sa ON (ra.stop = (SELECT id FROM stops sa WHERE name = 'Craiglockhart')) WHERE ra.num = rx.num)
-   AND ry.company IN (SELECT DISTINCT rb.company
-  FROM route rb JOIN stops sb ON (rb.stop = (SELECT id FROM stops sb WHERE name = 'Lochend')) WHERE rb.num = ry.num)
+   AND rx.company IN (SELECT DISTINCT ra.company FROM route ra
+                      JOIN stops sa ON (ra.stop = (SELECT id FROM stops sa
+                                                   WHERE name = 'Craiglockhart'))
+                      WHERE ra.num = rx.num)
+   AND ry.company IN (SELECT DISTINCT rb.company FROM route rb
+                      JOIN stops sb ON (rb.stop = (SELECT id FROM stops sb
+                                                   WHERE name = 'Lochend'))
+                      WHERE rb.num = ry.num);
 -- CREDIT ME: Simon Tharby / jinjagit, if you use / copy this answer.
 -- I have not seen any other correct student solution to this last exercise (student solutions on Odin Project: 25/1/18).
