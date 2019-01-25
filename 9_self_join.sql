@@ -76,7 +76,7 @@ SELECT stopa.name, a.company, a.num
 --      Lochend. Show the bus no. and company for the first bus, the name of
 --      the stop for the transfer, and the bus no. and company for the
 --      second bus.
-SELECT rx.num, rx.company, sx.name, ry.num, ry.company
+SELECT rx.num, rx.company, sx.name AS change_at, ry.num, ry.company
   FROM route rx JOIN route ry ON (rx.stop = ry.stop)
   JOIN stops sx ON (sx.id = rx.stop)
  WHERE rx.num != ry.num
