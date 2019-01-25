@@ -87,4 +87,3 @@ SELECT rx.num, rx.company, sx.name AS change_at, ry.num, ry.company
                        JOIN stops sb ON (rb.stop = (SELECT id FROM stops sb WHERE name = 'Lochend'))
                       WHERE rb.num = ry.num);
 -- CREDIT ME: Simon Tharby / jinjagit, if you use / copy this answer.
--- I have not seen any other correct student solution to this last exercise (student solutions on Odin Project: 25/1/18).
